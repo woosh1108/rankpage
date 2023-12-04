@@ -1,0 +1,64 @@
+/* ProductItem.css */
+
+.product-item {
+  text-align: center;
+  width: 277px; /* 상품 아이템의 너비를 조절 */
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+  max-height: 277px; /* 상품 사진의 최대 높이를 조절 */
+  border-radius: 10px;
+}
+
+.product-rank {
+  font-size: 13px;
+  font-weight: bold;
+  position: absolute; /* 절대 위치로 설정 */
+  background-color: #222222; /* 배경색 지정 */
+  color: #ffffff; /* 글자색 지정 */
+  padding: 9px; /* 내용과 테두리 간의 여백 지정 */
+  z-index: 1; /* 다른 요소들보다 앞에 표시되도록 설정 */
+  border-radius: 5px; /* 모서리 둥글게 설정 */
+  width: 10px; /* 너비 설정 */
+  height: 10px; /* 높이 설정 */
+  top: 6px;
+  left: 6px;
+  display: flex; /* Flexbox 사용 */
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  text-align: left;
+}
+
+.product-details {
+  flex-grow: 1;
+}
+
+.product-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.product-stats div {
+  display: flex;
+  align-items: center;
+}
+
+.product-stats img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}

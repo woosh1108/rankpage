@@ -1,0 +1,137 @@
+/* Footer.css */
+
+footer {
+  width: 70%;
+  margin: 0 auto; /* 중앙 정렬을 위해 추가 */
+  background-color: #fff;
+  padding: 20px;
+  border-top: 1px solid #ebebeb;
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 30px;
+  margin: 10px 0;
+}
+
+.info-menu, .support-menu {
+  margin-right: 100px;
+}
+
+.info-menu p, .support-menu p {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.info-menu p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #222;
+}
+
+.info-menu small, .support-menu small {
+  display: block;
+  margin-bottom: 5px;
+  color: #999;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.contact-info {
+  margin-left: auto;
+  text-align: right;
+}
+
+.contact-info div {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.contact-info p {
+  margin-bottom: 5px;
+  color: #999;
+  font-size: 13px;
+  text-align: left;
+  margin: 5px 0;
+  letter-spacing: 0.1px;
+}
+
+.contact-info p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.contact-info p:nth-child(4) {
+  color: #222;
+  margin: 10px 0;
+}
+
+button {
+  margin-top: 5px;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  float: left;
+  letter-spacing: 0.1px;
+}
+
+
+.footer-links {
+  margin-top: 30px;
+}
+
+.footer-links a {
+  margin-right: 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:last-child {
+  font-weight: bold;
+  color: #222;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.legal-info p {
+  color: #999;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: -.06px;
+  max-width: 605px;
+  letter-spacing: 0.1px;
+}
+
+.legal-info p:first-child {
+  font-size: 13px
+  ;color: rgba(34,34,34,.5);
+  margin-top: 16px;
+}
+
+.legal-info p:nth-child(2) {
+  font-weight: bold;
+  color: #222;
+  padding-top: 30px;
+}
+
+.legal-info p span {
+  margin-right: 4px;
+}
+
+.footer-links,
+.legal-info {
+  max-width: 65%; /* 최대 너비를 65%로 설정 */
+}

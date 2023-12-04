@@ -1,0 +1,18 @@
+/* RankPage.css */
+
+.rank-page {
+  text-align: center;
+}
+
+.rank-page h2 {
+  font-size: 20px;
+  padding-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 5px;
+}
