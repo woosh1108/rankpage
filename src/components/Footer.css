@@ -85,7 +85,6 @@ button {
   letter-spacing: 0.1px;
 }
 
-
 .footer-links {
   margin-top: 30px;
 }
@@ -107,31 +106,59 @@ button {
 }
 
 .legal-info p {
-  color: #999;
-  font-size: 12px;
-  line-height: 20px;
+  color: rgba(34,34,34,.5);
   letter-spacing: -.06px;
-  max-width: 605px;
   letter-spacing: 0.1px;
+  margin: 0;
 }
 
-.legal-info p:first-child {
-  font-size: 13px
-  ;color: rgba(34,34,34,.5);
+.legal-info .business_title {
+  font-size: 13px;
   margin-top: 16px;
+  margin-right: 4px;
 }
 
-.legal-info p:nth-child(2) {
-  font-weight: bold;
+.business_title .blank {
+  margin-right: 17px;
+}
+
+.legal-info .title {
+  font-size: 12px;
+  font-weight: 700;
   color: #222;
   padding-top: 30px;
+}
+
+.description {
+  font-size: 12px;
+}
+
+.link_guarantee {
+  margin-left: 4px;
+  text-decoration: underline;
+  padding: 40px 0 8px;
 }
 
 .legal-info p span {
   margin-right: 4px;
 }
 
-.footer-links,
-.legal-info {
-  max-width: 65%; /* 최대 너비를 65%로 설정 */
+.notice_area {
+  align-items: flex-end;
+  display: flex;
+  padding: 12px 0 0;
+}
+
+.notice_area .notice {
+  color: rgba(34,34,34,.4);
+  font-size: 12px;
+  letter-spacing: -.06px;
+  max-width: 605px;
+}
+
+.notice_area .copyright {
+  color: rgba(34,34,34,.3);
+  flex-shrink: 0;
+  font-size: 12px;
+  margin-left: auto;
 }

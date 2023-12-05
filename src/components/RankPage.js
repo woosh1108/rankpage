@@ -12,6 +12,10 @@ const RankPage = ({ title, products }) => {
         {products.map((product) => (
           <ProductItem key={product.id} {...product} />
         ))}
+        
+      </div>
+      <div className="share-container">
+        <button className="share-button">친구에게 공유하기</button>
       </div>
     </div>
   );

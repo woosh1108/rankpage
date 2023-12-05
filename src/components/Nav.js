@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css'; // 스타일 파일 추가
+import logoImg from '../logo.png';
 
 const Nav = () => {
   return (
@@ -15,7 +16,7 @@ const Nav = () => {
       </div>
       <div className="bottom-menu">
         <div className="logo-container">
-          <img src="path/to/logo.png" alt="Logo" />
+          <img src={logoImg} alt="Logo" />
         </div>
         <Link to="/">HOME</Link>
         <Link to="/style">STYLE</Link>
