@@ -1,0 +1,52 @@
+/* Header.css */
+
+header {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  align-items: flex-end;
+  position: fixed; /* 화면 상단에 고정시킴 */
+  top: 0; /* 화면 맨 위에 위치하도록 조정 */
+  z-index: 1000; /* 다른 요소들 위에 나타나도록 z-index 설정 */
+}
+
+.top-menu {
+  width: 70%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+.top-menu small {
+  margin-left: 20px;
+  font-size: 12px;
+  color: rgba(34, 34, 34, 0.8);
+}
+
+.logo-container {
+  margin-right: auto;
+}
+
+.logo-container img {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.bottom-menu {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0px;
+}
+
+.bottom-menu a {
+  text-decoration: none;
+  color: #222;
+  margin-left: 30px;
+  font-size: 18px;
+}

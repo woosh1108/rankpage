@@ -1,52 +1,56 @@
 /* Nav.css */
 
 nav {
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  width: 20%;
   background-color: #fff;
-  align-items: flex-end;
-  position: fixed; /* 화면 상단에 고정시킴 */
-  top: 0; /* 화면 맨 위에 위치하도록 조정 */
-  z-index: 1000; /* 다른 요소들 위에 나타나도록 z-index 설정 */
+  box-sizing: border-box;
 }
 
-.top-menu {
-  width: 70%;
-  display: flex;
+h1 {
+  color: #000;
+  font-size: 32px;
+  letter-spacing: -0.48px;
+  padding-bottom: 25px;
+  text-transform: uppercase;
   margin: 0 auto;
-  justify-content: flex-end;
-  padding-top: 10px;
 }
 
-.top-menu small {
-  margin-left: 20px;
-  font-size: 12px;
-  color: rgba(34, 34, 34, 0.8);
-}
-
-.logo-container {
-  margin-right: auto;
-}
-
-.logo-container img {
-  width: 120px;
-  margin-bottom: 10px;
-}
-
-.bottom-menu {
-  width: 70%;
+ul {
+  list-style: none;
+  padding: 0;
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 0px;
 }
 
-.bottom-menu a {
+li {
+  list-style: none;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 12px;
+}
+
+a {
   text-decoration: none;
+}
+
+li:first-child {
+  margin-top: 0px;
+}
+
+/* 선택된 li에 대한 스타일 */
+li.selected a {
+  font-weight: 700;
   color: #222;
-  margin-left: 30px;
-  font-size: 18px;
+}
+
+/* 선택 안된 li에 대한 스타일 */
+li:not(.selected) a {
+  color: rgba(34, 34, 34, 0.5);
+  letter-spacing: -0.15px;
+  line-height: 18px;
 }

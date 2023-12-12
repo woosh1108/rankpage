@@ -3,8 +3,11 @@
 import React from 'react';
 import ProductItem from './ProductItem';
 import './RankPage.css';
+import menShoeDummyData from '../MenShoeDummyData';
 
-const RankPage = ({ title, products }) => {
+const RankPage = ({ title }) => {
+  const products = menShoeDummyData;
+  
   return (
     <div className="rank-page">
       <h2>{title}</h2>

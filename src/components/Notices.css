@@ -1,0 +1,83 @@
+/* Notices.css */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.title {
+  border-bottom: 3px solid #222;
+  padding-bottom: 16px;
+}
+
+h3 {
+  margin: 0 auto;
+  color: #000;
+  font-size: 24px;
+  letter-spacing: -0.36px;
+}
+
+.notices-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.notices-list li {
+  border-bottom: 1px solid #ddd;
+  padding: 17px 0px 19px;
+  margin: 0 auto;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination .prev_btn_box {
+  margin-right: 25px;
+}
+
+.pagination .next_btn_box {
+  margin-left: 25px;
+}
+
+.prev_btn_box button, .next_btn_box button {
+  margin: 0 auto;
+  padding: 10px 10px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #222;
+}
+
+.pagination button:disabled {
+  display: none;
+}
+
+.pagination button.active {
+  color: #222;
+}
+
+.pagination span {
+  margin-left: 12px;
+  padding: 0 8px;
+  font-size: 16px;
+  cursor: pointer;
+  color: rgba(34,34,34,.5);
+}
+
+.pagination span:hover {
+  text-decoration: underline;
+}
+
+.pagination span.active {
+  color: #222;
+  font-weight: 700;
+}
+
+.pagination span.first-page {
+  margin-left: 0;
+}
