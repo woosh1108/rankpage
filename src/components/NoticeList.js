@@ -1,10 +1,10 @@
-// Notices.js
+// NoticeList.js
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleLeft, faAngleLeft, faAngleRight, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
-import './Notices.css';
+import './NoticeList.css';
 
-const Notices = () => {
+const NoticeList = () => {
   const [notices, setNotices] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const noticesPerPage = 20;
@@ -57,7 +57,7 @@ const Notices = () => {
 
   return (
     <div className="content">
-      <div className="title">
+      <div className="notice-header">
         <h3>공지사항</h3>
       </div>
       <ul className="notices-list">
@@ -88,4 +88,4 @@ const Notices = () => {
   );
 };
 
-export default Notices;
+export default NoticeList;

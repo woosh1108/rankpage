@@ -1,0 +1,77 @@
+/* NoticeDetail.css */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.notice-header {
+  border-bottom: 3px solid #222;
+  padding-bottom: 16px;
+}
+
+.content .notice-header h3 {
+  margin: 0 auto;
+  color: #000;
+  font-size: 24px;
+  letter-spacing: -0.36px;
+}
+
+.content .notice-info {
+  align-items: center;
+  border-bottom: 1px solid #ebebeb;
+  cursor: pointer;
+  padding: 17px 0 19px;
+}
+
+.content .notice-info .notice-date {
+  display: inline-flex;
+  font-size: 12px;
+  letter-spacing: -.06px;
+  margin-bottom: 1px;
+  margin: 0 auto;
+}
+
+.content .notice-info p {
+  font-size: 15px;
+  letter-spacing: -.15px;
+  margin: 0 auto;
+}
+
+.content .notice-content {
+  background-color: #fafafa;
+  border-bottom: 1px solid #ebebeb;
+  font-size: 14px;
+  letter-spacing: -.21px;
+  padding: 30px 30px 28px;
+}
+
+.content .notice-content .notice-body {
+  max-width: 640px;
+  word-break: break-word;
+  margin: 0px;
+}
+
+.content .btn_list {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.content .btn_list a {
+  border: 1px solid #d3d3d3;
+  color: rgba(34,34,34,.8);
+  align-items: center;
+  background-color: #fff;
+  color: rgba(34,34,34,.8);
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 12px;
+  font-size: 14px;
+  height: 42px;
+  letter-spacing: -.14px;
+  padding: 0 18px;
+}

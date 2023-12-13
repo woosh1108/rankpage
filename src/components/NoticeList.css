@@ -1,4 +1,4 @@
-/* Notices.css */
+/* NoticeList.css */
 
 .content {
   display: flex;
@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.title {
+.notice-header {
   border-bottom: 3px solid #222;
   padding-bottom: 16px;
 }
