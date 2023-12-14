@@ -1,0 +1,57 @@
+/* InspectionCriteria.css */
+
+.inspection-criteria {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.inspection-criteria-header {
+  border-bottom: 3px solid #222;
+  padding-bottom: 16px;
+}
+
+.inspection-criteria .inspection-criteria-header h3 {
+  margin: 0 auto;
+  color: #000;
+  font-size: 24px;
+  letter-spacing: -0.36px;
+}
+
+.inspection-criteria table {
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.inspection-criteria td {
+  border: 1px solid #ccc;
+  cursor: pointer;
+  text-align: center;
+  width: 33.33%;
+  height: 59px;
+  letter-spacing: -.09px;
+}
+
+.inspection-criteria td a {
+  word-break: keep-all;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.inspection-criteria td.selected a {
+  color: #222;
+  font-weight: 700;
+}
+
+.inspection-criteria td:not(.selected) a {    
+  color: rgba(34,34,34,.5);
+}
+
+.selected-content {
+  padding: 20px 0 19px;
+}
+
+.selected-content p {
+  font-size: 14px;
+  margin: 0px;
+}
