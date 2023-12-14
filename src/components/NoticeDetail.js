@@ -10,9 +10,16 @@ const NoticeDetail = ({ match }) => {
   // 가상의 데이터
   const dummyData = {
     id: 1,
-    title: '[이벤트 발표] SURPRISE DRAW T1 유니폼',
-    content: '안녕하세요. KREAM 입니다. <br/>11/30(목) ~ 12/4(월) 진행된 SURPRISE DRAW T1 유니폼 안내 드립니다.',
-    createdAt: '2023-12-05', // 예시 날짜 데이터
+    title: '[공지] 일부 상품의 사이즈 표기 방식 변경 예정 안내',
+    content: `<p>안녕하세요. KREAM 입니다. </p><br/>
+    <p>일부 상품에 대하여 정확한 거래를 위해 사이즈 표기 방식을 제조사 공식 홈페이지 기준으로 아래와 같이 볂경할 예정입니다.</p>
+    <p>해당 표기 방식 변경에 따라 일부 판매/구매 입장이 조기 만료될 수 있습니다. 관련하여 입찰하신 고객님께 개별 안내를 드리겠습니다.</p>
+    <br/><p><b>Nike Air Presto</b></p>
+    <ul><li>240-250(3XS)</li><li>250-260(XXS)</li><li>260-270(XS)</li><li>270-280(S)</li><li>280-290(M)</li><li>290-300(L)</li><li>300-310(XL)</li><li>310-320(XXL)</li><li>320-330(3XL)</li><ul>
+    <br/><p><b>Nike Air Presto</b></p>
+    <ul><li>240-250(3XS)</li><li>250-260(XXS)</li><li>260-270(XS)</li><li>270-280(S)</li><li>280-290(M)</li><li>290-300(L)</li><li>300-310(XL)</li><li>310-320(XXL)</li><li>320-330(3XL)</li><ul>
+    `,
+    createdAt: '2020-04-10', // 예시 날짜 데이터
   };
 
   const [notice, setNotice] = useState(null);

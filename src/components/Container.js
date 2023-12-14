@@ -1,6 +1,7 @@
 // Container.js
 
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RankPage from './RankPage';
 import Nav from './Nav';
 import NoticeDetail from './NoticeDetail';
