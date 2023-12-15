@@ -1,0 +1,218 @@
+/* Question.css */
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.question-container-header {
+  border-bottom: 3px solid #222;
+}
+
+.question-container .question-container-header h3 {
+  margin: 0 auto;
+  color: #000;
+  font-size: 24px;
+  letter-spacing: -0.36px;
+}
+
+.question-container .category-table {
+  border-collapse: collapse;
+}
+
+.question-container .category-table td {
+  border: 1px solid #ccc;
+  cursor: pointer;
+  text-align: center;
+  width: 33.33%;
+  height: 59px;
+  letter-spacing: -.09px;
+}
+
+.question-container .category-table td a {
+  word-break: keep-all;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.question-container .category-table td.selected a {
+  color: #222;
+  font-weight: 700;
+}
+
+.question-container .category-table td:not(.selected) a {    
+  color: rgba(34,34,34,.5);
+}
+
+/* 검색 */
+.no-results-message {
+  background-color: #fff;
+  padding: 120px 0 100px;
+  position: relative;
+  text-align: center;
+}
+
+.no-results-message p {
+  color: rgba(34,34,34,.8);
+  font-size: 16px;
+  letter-spacing: -.16px;
+  margin: 0;
+}
+
+.search-results-info p {
+  margin: 0;
+  padding: 0 0 12px;
+  border-bottom: 1px solid #ebebeb;
+  font-size: 14px;
+}
+
+.question-container .search {
+  display: flex;
+  justify-content: space-between;
+  position: relative;  
+}
+
+.question-container .search .search-bar {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  font-size: 15px;
+  margin: 16px 0 20px;
+  padding: 15px 43px 15px 12px;
+  width: 100%;
+}
+
+.question-container .search .clear-icon {
+  position: absolute;
+  right: 14px;
+  top: 29px;
+  appearance: none;
+  border: 0;
+  outline: none;
+  background: #CACACA;
+  padding: 4px 5px 3px 5px; /* 패딩값은 적절히 조절해주세요 */
+  border-radius: 100%; /* 원형 모양으로 만듭니다. */
+  margin: 0 auto;
+}
+
+input {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  box-sizing: border-box;
+  padding-block: 1px;
+  padding-inline: 2px;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  padding: 0;
+  color: #222;
+}
+
+/* 테이블 */
+.question-container .title-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.question-container .title-item {
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease; /* 호버 효과 부드럽게 전환 */
+}
+
+.question-container .title-item .title-item-header {
+  border-bottom: 1px solid #ddd;
+  margin: 0px;
+  display: flex;
+  justify-content: space-between; /* 오른쪽 정렬을 위한 설정 */
+  box-sizing: border-box;
+  padding: 18px 0px 19px;
+
+}
+
+.question-container .title-item .title-item-content p {
+  border-bottom: 1px solid #ebebeb;
+  background-color: #fafafa;
+  font-size: 14px;
+  letter-spacing: -.21px;
+  padding: 30px 30px 28px;
+  margin: 0;
+}
+
+.question-container .title-item .faq-content {
+  margin: 0;
+  color: #222;
+}
+
+.question-container .title-item .faq-category {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: -.21px;
+  min-width: 68px;
+  width: 68px;
+  color: #222;
+}
+
+.question-container .title-item .faq-category,
+.question-container .title-item .faq-title,
+.question-container .title-item .faq-icon {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+}
+
+.question-container .title-item .faq-icon {
+  flex-shrink: 0;
+  margin-left: auto; /* 오른쪽 정렬을 위한 설정 */
+  padding: 0px;
+  color: rgba(34,34,34,.5);
+}
+
+.question-container .title-item .faq-title {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: -.15px;
+  color: #222;
+}
+
+.question-container .title-item.active p {
+  display: block;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  .question-container .title-item {
+    width: 100%; /* 작은 화면에서 전체 너비로 표시 */
+  }
+}
+
+/* 페이징 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
+.pagination span {
+  margin-left: 12px;
+  padding: 0 8px;
+  font-size: 16px;
+  cursor: pointer;
+  color: rgba(34,34,34,.5);
+}
+
+.pagination span:hover {
+  text-decoration: underline;
+}
+
+.pagination span.active {
+  color: #222;
+  font-weight: 700;
+}
+
+.pagination span.first-page {
+  margin-left: 0;
+}
