@@ -9,12 +9,12 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-        {/*<Search />*/}
-         <Header />
+        <Search />
+         {/*<Header />
           <Routes>
             <Route path="/" element={<Container />} />
           </Routes>
-        <Footer /> 
+        <Footer /> */}
       </div>
     </Router>
   );

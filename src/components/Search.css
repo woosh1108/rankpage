@@ -1,0 +1,196 @@
+/* Search.css */
+
+.search-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-input {
+  border-bottom: 3px solid #000;
+  flex: none;
+  flex-grow: 1;
+  margin: 0;
+  order: 0;
+  padding: 50px 0 16px;
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.search-input input {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -.015em;
+  line-height: 29px;
+  overflow: hidden;
+  padding: 0 13px 0 1px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-input input::placeholder {
+  color: #BCBCBC;
+  font-weight: initial;
+  font-size: 20px;
+}
+
+input {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  padding: 0;
+  resize: none;
+  width: 100%;
+}
+
+.search-input .clear-icon {
+  float: right;
+  height: 24px;
+  margin-right: 3px;
+  margin-top: 3px;
+  width: 24px;
+  color: #4C4C4C;
+  appearance: none;
+  border: 0;
+  outline: none;
+  background: #F4F4F4;
+  padding: 4px 5px 3px 5px; /* 패딩값은 적절히 조절해주세요 */
+  border-radius: 100%; /* 원형 모양으로 만듭니다. */
+}
+
+.search-container section h2 {
+  color: #222;
+  font-size: 16px;
+}
+
+section {
+  padding-bottom: 40px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+.rank {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.column li {  
+  padding: 4px 0 16px;
+  font-size: 14px;
+  margin: 0;
+}
+
+.ranked-list {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  display: flex;
+}
+
+.column {
+  width: 48%; /* 조절 가능한 너비 */
+}
+
+.horizontal-section {
+  display: flex;
+  flex-direction: column; /* 세로로 나열하도록 변경 */
+  align-items: flex-start; /* 왼쪽 정렬 */
+}
+
+.horizontal-section h2 {
+  margin-bottom: 12px;
+}
+
+.horizontal-section ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.horizontal-section li {
+  margin-right: 10px;
+}
+
+.recommendation-search,
+.resent-search {
+  line-height: 13px;
+  padding-bottom: 40px;
+}
+.resent-search {
+  padding-bottom: 32px;
+}
+
+.resent-search ul li div {
+  color: rgba(34,34,34,.8);
+  display: block;
+  font-size: 14px;
+  letter-spacing: -.21px;
+  letter-spacing: normal;
+  max-width: 144.5px;
+  overflow: hidden;
+  padding-left: 4px;
+  padding-right: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recommendation-search ul li{
+  background: #f4f4f4;
+  border: 1px solid #ebebeb;
+  border-radius: 20px;
+  color: rgba(34,34,34,.8);
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: -.21px;
+  margin: 0 8px 12px 0;
+  max-width: 142px;
+  overflow: hidden;
+  padding: 8px 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.horizontal-section div {
+  margin: 4px 0 0;
+}
+
+.resent-search ul li {
+  color: rgba(34,34,34,.8);
+  display: block;
+  font-size: 14px;
+  letter-spacing: -.21px;
+  letter-spacing: normal;
+  max-width: 144.5px;
+  overflow: hidden;
+  padding-left: 4px;
+  padding-right: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  align-items: center;
+  border: 1px solid #ebebeb;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-flex;
+  line-height: 25px;
+  margin: 0 6px 8px 0;
+  padding: 3px 8px;
+  position: relative;
+}

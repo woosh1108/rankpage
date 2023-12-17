@@ -26,7 +26,6 @@ const Question = () => {
     // ... (필요한 만큼 FAQ 항목 추가)
   ];
 
-
   // 선택한 카테고리와 세부 내용을 관리할 상태
   const [selectedCategory, setSelectedCategory] = useState('전체');
   const [selectedTitles, setSelectedTitles] = useState([]);
