@@ -6,15 +6,18 @@
   padding: 20px;
 }
 
+.search-container .search-content {
+  margin-top: 40px;
+}
+
 .search-input {
   border-bottom: 3px solid #000;
   flex: none;
   flex-grow: 1;
   margin: 0;
   order: 0;
-  padding: 50px 0 16px;
+  padding: 40px 0 16px;
   width: 100%;
-  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -65,6 +68,7 @@ input {
 .search-container section h2 {
   color: #222;
   font-size: 16px;
+  margin: 0 0 12px;
 }
 
 section {
@@ -113,7 +117,7 @@ li {
   align-items: flex-start; /* 왼쪽 정렬 */
 }
 
-.horizontal-section h2 {
+.horizontal-section h2 { 
   margin-bottom: 12px;
 }
 
@@ -128,13 +132,22 @@ li {
   margin-right: 10px;
 }
 
+
+.horizontal-section.resent-search div ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* 각 검색어 사이의 간격 조절 */
+}
+
+.horizontal-section.resent-search div ul li {
+  list-style: none;
+  margin: 0;
+}
+
 .recommendation-search,
 .resent-search {
   line-height: 13px;
   padding-bottom: 40px;
-}
-.resent-search {
-  padding-bottom: 32px;
 }
 
 .resent-search ul li div {
@@ -149,6 +162,7 @@ li {
   padding-right: 20px;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin: 0;
 }
 
 .recommendation-search ul li{
@@ -193,4 +207,128 @@ li {
   margin: 0 6px 8px 0;
   padding: 3px 8px;
   position: relative;
+}
+
+.resent-search span,
+.resent-product span {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 12px;
+  line-height: 16px;
+}
+
+.clear-link, .add-link {
+  color: rgba(34,34,34,.8);
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 5px;
+  font-weight: initial;
+}
+
+.resent-search li {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.delete-icon {
+  background-color: transparent;
+  border: none;
+  color: #BBBBBB;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 13px;
+  top: 53%;
+  transform: translateY(-50%);
+}
+
+.back-button {
+  position: fixed;
+  top: 15px; /* 원하는 위치로 조정 */
+  right: 15px; /* 원하는 위치로 조정 */
+  background-color: transparent; /* 배경 색상 */
+  color: #4C4C4C;
+  border: none;
+  margin: 0;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* 최근 상품 스타일 */
+/* product-list 스타일 */
+.product-list {
+  display: inline-block;
+  overflow: scroll;
+  white-space: nowrap;
+  flex-direction: column; /* 왼쪽에서 오른쪽으로 나열되도록 설정 */
+  width: 100%;
+  padding-bottom: 13px;
+}
+
+/* product-item 스타일 */
+.product-item {
+  flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  padding-right: 8px;
+  width: 80px;
+  text-align: left;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* 이미지 스타일 */
+.product-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover; /* 이미지 비율 유지 */
+}
+
+/* 브랜드명 스타일 */
+.product-list .product-item .brand-name,
+.product-list .product-item .product-name-english {
+  display: block;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-wrap: break-word;
+  font-size: 11px;
+  letter-spacing: -.7px;
+  margin-top: 0;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 자동완성 */
+.autocomplete-section {
+  margin-top: 4px;
+  background-color: #fff;
+}
+
+.autocomplete-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 4px;
+}
+
+.autocomplete-section li {
+  color: #222;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 16px 0;
+  margin: 0;
+}
+
+.autocomplete-section li:hover {
+  background-color: #FAFAFA;
 }
