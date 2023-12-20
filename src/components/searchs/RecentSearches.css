@@ -1,0 +1,67 @@
+/* RecentSearches.css */
+
+.resent-search {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 13px;
+  padding-bottom: 40px;
+}
+
+.resent-search span {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 12px;
+  line-height: 16px;
+}
+
+.clear-link {
+  color: rgba(34,34,34,.8);
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 5px;
+  font-weight: initial;
+}
+
+.resent-search ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.resent-search li {
+  display: flex;
+  position: relative;
+  align-items: center;
+  border: 1px solid #ebebeb;
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 25px;
+  padding: 3px 8px;
+  margin: 0 6px 8px 0;
+  cursor: pointer;
+}
+
+.resent-search ul li div {
+  display: block;
+  max-width: 144.5px;
+  padding-left: 4px;
+  padding-right: 20px;
+  margin: 0;
+}
+
+.delete-icon {
+  background-color: transparent;
+  border: none;
+  color: #BBBBBB;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 13px;
+  top: 53%;
+  transform: translateY(-50%);
+}

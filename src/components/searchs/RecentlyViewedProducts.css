@@ -1,0 +1,67 @@
+/* RecentlyViewedProducts.css */
+
+.resent-product {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.resent-product span {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 12px;
+  line-height: 16px;
+}
+
+.add-link {
+  color: rgba(34,34,34,.8);
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 5px;
+  font-weight: initial;
+}
+
+.product-list {
+  margin: 8px 0 0;
+  display: inline-block;
+  overflow: scroll;
+  white-space: nowrap;
+  flex-direction: column; /* 왼쪽에서 오른쪽으로 나열되도록 설정 */
+  width: 100%;
+  padding-bottom: 13px;
+}
+
+.product-item {
+  flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  padding-right: 8px;
+  width: 80px;
+  text-align: left;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.product-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover; /* 이미지 비율 유지 */
+}
+
+.product-list .product-item .brand-name,
+.product-list .product-item .product-name-english {
+  display: block;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-wrap: break-word;
+  font-size: 11px;
+  letter-spacing: -.7px;
+  margin-top: 0;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

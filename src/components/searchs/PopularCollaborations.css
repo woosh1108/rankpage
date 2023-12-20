@@ -1,0 +1,24 @@
+/* PopularCollaborations.css */
+
+section h2 {
+  color: #222;
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.ranked-list {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  display: flex;
+}
+
+.column {
+  width: 48%; /* 조절 가능한 너비 */
+}
+
+.column li {  
+  padding: 4px 0 16px;
+  font-size: 14px;
+  margin: 0;
+}

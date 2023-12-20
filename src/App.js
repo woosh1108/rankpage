@@ -2,10 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Container from './components/Container';
-import Search from './components/Search';
+import Search from './components/searchs/Search';
 import Footer from './components/Footer';
 
 const App = () => {
+
   return (
     <Router>
       <div className="app">

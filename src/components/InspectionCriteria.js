@@ -1,4 +1,5 @@
 // InspectionCriteria.js
+// 검수 기준
 
 import React, { useState } from 'react';
 import './InspectionCriteria.css';

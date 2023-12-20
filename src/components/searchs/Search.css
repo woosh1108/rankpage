@@ -1,0 +1,113 @@
+/* Search.css */
+
+.search-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-container .search-content {
+  margin-top: 40px;
+}
+
+section {
+  padding-bottom: 40px;
+}
+
+/* 모달 */
+.modal {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 360px;
+}
+
+.layer-header {
+  padding: 32px 16px 0;
+}
+
+.layer-header .title {
+  background-color: #fff;
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -.15px;
+  padding: 0;
+  text-align: center;
+  margin: 0;
+}
+
+.alert-box {
+  padding: 8px 32px 0;
+}
+
+.alert-box .alert-desc {
+  color: rgba(34,34,34,.8);
+  font-size: 14px;
+  letter-spacing: -.21px;
+  margin: 0;
+  text-align: center;
+}
+
+.btn {
+  align-items: center;
+  background-color: #fff;
+  color: rgba(34,34,34,.8);
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.layer-btn {
+  display: flex;
+  justify-content: center;
+  padding: 24px 32px 32px;
+}
+
+.layer-btn .btn {
+  width: 120px;
+}
+
+.solid {
+  background-color: #222;
+  color: #fff;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+.outlinegrey {
+  border: 1px solid #d3d3d3;
+  color: rgba(34,34,34,.8);
+}
+
+.medium {
+  border-radius: 12px;
+  font-size: 14px;
+  height: 42px;
+  letter-spacing: -.14px;
+  padding: 0 18px;
+}
+
+/* 닫기 버튼 */
+.back-button {
+  position: fixed;
+  top: 15px; /* 원하는 위치로 조정 */
+  right: 15px; /* 원하는 위치로 조정 */
+  background-color: transparent; /* 배경 색상 */
+  color: #4C4C4C;
+  border: none;
+  margin: 0;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}

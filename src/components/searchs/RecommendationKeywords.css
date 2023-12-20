@@ -1,0 +1,32 @@
+/* RecommendationKeywords.css */
+
+.recommendation-search {
+  display: flex;
+  flex-direction: column; /* 세로로 나열하도록 변경 */
+  align-items: flex-start; /* 왼쪽 정렬 */
+  line-height: 13px;
+  padding-bottom: 40px;
+}
+
+.recommendation-search ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+}
+
+.recommendation-search ul li{
+  background: #f4f4f4;
+  border: 1px solid #ebebeb;
+  border-radius: 20px;
+  color: rgba(34,34,34,.8);
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: -.21px;
+  margin: 0 8px 12px 0;
+  max-width: 142px;
+  overflow: hidden;
+  padding: 8px 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
