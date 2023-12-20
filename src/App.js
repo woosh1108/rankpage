@@ -8,11 +8,11 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-      <Routes>
+        {/* <Routes>
           <Route path="/search" element={<Search />} />
           <Route path="/main" element={<Container />} />
-        </Routes>
-
+        </Routes> */}
+        <Container />
       </div>
     </Router>
   );

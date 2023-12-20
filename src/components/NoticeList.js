@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleLeft, faAngleLeft, faAngleRight, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import Nav from './Nav';
 import './NoticeList.css';
 
 const NoticeList = () => {
@@ -56,6 +57,8 @@ const NoticeList = () => {
   };
 
   return (
+    <>
+      <Nav />
     <div className="content">
       <div className="notice-header">
         <h3>공지사항</h3>
@@ -85,6 +88,7 @@ const NoticeList = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

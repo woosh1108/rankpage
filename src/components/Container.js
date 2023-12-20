@@ -18,11 +18,11 @@ const Container = () => {
     <Header />
       <div className="container">
         <Routes>
-          <Route path="/rank" element={<RankPage title="남성 신발 인기 순위" />} />
+          <Route path="/RankPage" element={<RankPage title="남성 신발 인기 순위" />} />
           <Route path="/NoticeList" element={<NoticeList />} />
           <Route path="/NoticeDetail" element={<NoticeDetail />} />
-          <Route path="/InspectionCriteria" element={<InspectionCriteria />} />
           <Route path="/FAQs" element={<FAQs />} />
+          <Route path="/InspectionCriteria" element={<InspectionCriteria />} />
         </Routes>
       </div>
       <Footer />
