@@ -23,7 +23,7 @@
   font-weight: initial;
 }
 
-.product-list {
+.resent-product-list {
   margin: 8px 0 0;
   display: inline-block;
   overflow: scroll;
@@ -33,7 +33,7 @@
   padding-bottom: 13px;
 }
 
-.product-item {
+.resent-product-item {
   flex-shrink: 0;
   position: relative;
   display: inline-block;
@@ -44,15 +44,15 @@
   overflow: hidden;
 }
 
-.product-item img {
+.resent-product-item img {
   width: 80px;
   height: 80px;
   border-radius: 10px;
   object-fit: cover; /* 이미지 비율 유지 */
 }
 
-.product-list .product-item .brand-name,
-.product-list .product-item .product-name-english {
+.resent-product-list .resent-product-item .brand-name,
+.resent-product-list .resent-product-item .product-name-english {
   display: block;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;

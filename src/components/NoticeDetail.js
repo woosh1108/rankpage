@@ -1,6 +1,7 @@
 // NoticeDetail.js
 
 import React, { useState, useEffect } from 'react';
+import Nav from './Nav';
 import './NoticeDetail.css';
 
 const NoticeDetail = ({ match }) => {
@@ -37,21 +38,24 @@ const NoticeDetail = ({ match }) => {
   }
 
   return (
-    <div className="content">
-      <div className='notice-header'>
-        <h3>공지사항</h3>
+    <>
+      <Nav />
+      <div className="content">
+        <div className='notice-header'>
+          <h3>공지사항</h3>
+        </div>
+        <div className='notice-info'>
+          <span className='notice-date'>{notice.createdAt}</span>
+          <p>{notice.title}</p>
+        </div>
+        <div className='notice-content'>
+          <div className='notice-body' dangerouslySetInnerHTML={{ __html: notice.content }}></div>
+        </div>
+        <div className='btn_list'>
+          <a>목록보기</a>
+        </div>
       </div>
-      <div className='notice-info'>
-        <span className='notice-date'>{notice.createdAt}</span>
-        <p>{notice.title}</p>
-      </div>
-      <div className='notice-content'>
-        <div className='notice-body' dangerouslySetInnerHTML={{ __html: notice.content }}></div>
-      </div>
-      <div className='btn_list'>
-        <a>목록보기</a>
-      </div>
-    </div>
+    </>
   );
 };
 

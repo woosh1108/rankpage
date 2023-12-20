@@ -1,20 +1,32 @@
 // Container.js
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import RankPage from './RankPage';
-import Nav from './Nav';
 import NoticeDetail from './NoticeDetail';
+import NoticeList from './NoticeList';
 import InspectionCriteria from './InspectionCriteria';
 import FAQs from './FAQs';
+import Search from './searchs/Search'
 import './Container.css';
-// <RankPage title="남성 신발 인기 순위" />
+
 const Container = () => {
   return (
-    <div className="container">
-      <Nav/>
-      <FAQs/>
-    </div>
+    <>
+    <Header />
+      <div className="container">
+        <Routes>
+          <Route path="/rank" element={<RankPage title="남성 신발 인기 순위" />} />
+          <Route path="/NoticeList" element={<NoticeList />} />
+          <Route path="/NoticeDetail" element={<NoticeDetail />} />
+          <Route path="/InspectionCriteria" element={<InspectionCriteria />} />
+          <Route path="/FAQs" element={<FAQs />} />
+        </Routes>
+      </div>
+      <Footer />
+    </>
   );
 };
 

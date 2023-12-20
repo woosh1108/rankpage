@@ -11,7 +11,7 @@ const RecentlyViewedProducts = ({ products }) => (
       최근 본 상품
       <a className="add-link">더보기</a>
     </span>
-    <div className="product-list">
+    <div className="resent-product-list">
       {products.map((product, index) => (
         <ProductItem key={index} product={product} />
       ))}
@@ -20,7 +20,7 @@ const RecentlyViewedProducts = ({ products }) => (
 );
 
 const ProductItem = ({ product }) => (
-  <div className="product-item">
+  <div className="resent-product-item">
     <img src={shoes} alt={product.englishName} />
     <div className="brand-name">{product.brand}</div>
     <div className="product-name-english">{product.englishName}</div>

@@ -2,6 +2,7 @@
 // 검수 기준
 
 import React, { useState } from 'react';
+import Nav from './Nav';
 import './InspectionCriteria.css';
 
 // 선택된 셀의 내용에 HTML 적용을 위한 함수
@@ -49,6 +50,8 @@ const InspectionCriteria = () => {
   };
 
   return (
+    <>
+      <Nav />
     <div className="inspection-criteria">
       <div className="inspection-criteria-header">
         <h3>검수기준</h3>
@@ -86,6 +89,7 @@ const InspectionCriteria = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
