@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from 'react'; // useRef 추가
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown, faTimes } from '@fortawesome/free-solid-svg-icons';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Nav from './Nav';
 import './FAQs.css';
 
@@ -160,7 +162,9 @@ const FAQs = () => {
   const currentItems = selectedTitles.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-  <>
+    <>
+    <Header />
+      <div className="container">
     <Nav />
     <div className="question-container">
       <div className="question-container-header">
@@ -248,6 +252,8 @@ const FAQs = () => {
         ))}
       </div>
     </div>
+      </div>
+      <Footer />
     </>
   );
 };

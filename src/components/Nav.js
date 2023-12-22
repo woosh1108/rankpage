@@ -1,27 +1,27 @@
 // Nav.js
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // React Router를 사용하기 위한 import
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom'; // React Router를 사용하기 위한 import
 import './Nav.css';
 
 const Nav = () => {
-  const [selectedItem, setSelectedItem] = useState(0);
-
-  const handleItemClick = (index) => {
-    setSelectedItem(index);
-  };
+  // 현재 경로를 가져오는 Hook
+  const location = useLocation();
+  
+  // 현재 경로에서 선택된 항목을 추출
+  const selectedItemFromPath = location.pathname.split('/')[1];
 
   return (
     <nav>
       <h1>고객센터</h1>
       <ul>
-      <li className={selectedItem === 0 ? 'selected' : ''} onClick={() => handleItemClick(0)}>
+        <li className={selectedItemFromPath === 'NoticeList' ? 'selected' : ''}>
           <Link to="/NoticeList">공지사항</Link>
         </li>
-        <li className={selectedItem === 1 ? 'selected' : ''} onClick={() => handleItemClick(1)}>
+        <li className={selectedItemFromPath === 'FAQs' ? 'selected' : ''}>
           <Link to="/FAQs">자주 묻는 질문</Link>
         </li>
-        <li className={selectedItem === 2 ? 'selected' : ''} onClick={() => handleItemClick(2)}>
+        <li className={selectedItemFromPath === 'InspectionCriteria' ? 'selected' : ''}>
           <Link to="/InspectionCriteria">검수 기준</Link>
         </li>
       </ul>

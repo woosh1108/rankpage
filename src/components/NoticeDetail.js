@@ -1,6 +1,8 @@
 // NoticeDetail.js
 
 import React, { useState, useEffect } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Nav from './Nav';
 import './NoticeDetail.css';
 
@@ -39,6 +41,8 @@ const NoticeDetail = ({ match }) => {
 
   return (
     <>
+    <Header />
+      <div className="container">
       <Nav />
       <div className="content">
         <div className='notice-header'>
@@ -55,6 +59,8 @@ const NoticeDetail = ({ match }) => {
           <a>목록보기</a>
         </div>
       </div>
+      </div>
+      <Footer />
     </>
   );
 };

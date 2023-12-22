@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleLeft, faAngleLeft, faAngleRight, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Nav from './Nav';
 import './NoticeList.css';
 
@@ -58,36 +60,40 @@ const NoticeList = () => {
 
   return (
     <>
-      <Nav />
-    <div className="content">
-      <div className="notice-header">
-        <h3>공지사항</h3>
-      </div>
-      <ul className="notices-list">
-        {notices.map((notice) => (
-          <li key={notice.id}>{notice.title}</li>
-        ))}
-      </ul>
-      <div className="pagination">
-        <div className='prev_btn_box'>
-          <button onClick={() => handlePageChange(1)} disabled={currentPage === 1}>
-            <FontAwesomeIcon icon={faAngleDoubleLeft} />
-          </button>
-          <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
-            <FontAwesomeIcon icon={faAngleLeft} />
-          </button>
+    <Header />
+      <div className="container">
+        <Nav />
+      <div className="content">
+        <div className="notice-header">
+          <h3>공지사항</h3>
         </div>
-        {renderPageNumbers()}
-        <div className='next_btn_box'>
-          <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
-            <FontAwesomeIcon icon={faAngleRight} />
-          </button>
-          <button onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages}>
-            <FontAwesomeIcon icon={faAngleDoubleRight} />
-          </button>
+        <ul className="notices-list">
+          {notices.map((notice) => (
+            <li key={notice.id}>{notice.title}</li>
+          ))}
+        </ul>
+        <div className="pagination">
+          <div className='prev_btn_box'>
+            <button onClick={() => handlePageChange(1)} disabled={currentPage === 1}>
+              <FontAwesomeIcon icon={faAngleDoubleLeft} />
+            </button>
+            <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+              <FontAwesomeIcon icon={faAngleLeft} />
+            </button>
+          </div>
+          {renderPageNumbers()}
+          <div className='next_btn_box'>
+            <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+              <FontAwesomeIcon icon={faAngleRight} />
+            </button>
+            <button onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages}>
+              <FontAwesomeIcon icon={faAngleDoubleRight} />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+      </div>
+      <Footer />
     </>
   );
 };

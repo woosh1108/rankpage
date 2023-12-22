@@ -1,6 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Container from './components/Container';
+import RankPage from './components/RankPage';
+import NoticeDetail from './components/NoticeDetail';
+import NoticeList from './components/NoticeList';
+import FAQs from './components/FAQs';
+import InspectionCriteria from './components/InspectionCriteria';
 import Search from './components/searchs/Search';
 
 const App = () => {
@@ -8,11 +12,14 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-        {/* <Routes>
-          <Route path="/search" element={<Search />} />
-          <Route path="/main" element={<Container />} />
-        </Routes> */}
-        <Container />
+        <Routes>
+          <Route path="/Search" element={<Search />} />
+          <Route path="/" element={<RankPage title="남성 신발 인기 순위" />} />
+          <Route path="/NoticeList" element={<NoticeList />} />
+          <Route path="/NoticeDetail" element={<NoticeDetail />} />
+          <Route path="/FAQs" element={<FAQs />} />
+          <Route path="/InspectionCriteria" element={<InspectionCriteria />} />
+        </Routes>
       </div>
     </Router>
   );

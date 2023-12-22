@@ -2,6 +2,8 @@
 // 검수 기준
 
 import React, { useState } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Nav from './Nav';
 import './InspectionCriteria.css';
 
@@ -51,6 +53,8 @@ const InspectionCriteria = () => {
 
   return (
     <>
+    <Header />
+      <div className="container">
       <Nav />
     <div className="inspection-criteria">
       <div className="inspection-criteria-header">
@@ -89,6 +93,8 @@ const InspectionCriteria = () => {
         </div>
       )}
     </div>
+      </div>
+      <Footer />
     </>
   );
 };

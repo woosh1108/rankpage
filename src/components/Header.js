@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header>
       <div className="top-menu">
-          <small>고객센터</small>
+          <small><Link to="/NoticeList">고객센터</Link></small>
           <small>마이페이지</small>
           <small>관심</small>
           <small>알림</small>
@@ -21,7 +21,7 @@ const Header = () => {
         <Link to="/">HOME</Link>
         <Link to="/style">STYLE</Link>
         <Link to="/shop">SHOP</Link>
-        <Link to="/search">SEARCH</Link>
+        <Link to="/Search">SEARCH</Link>
       </div>
     </header>
   );
