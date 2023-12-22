@@ -45,6 +45,10 @@ const FAQs = () => {
   // 검색어를 지우는 함수
   const clearSearchTerm = () => {
     setSearchTerm('');
+    setShowSearchResults(false);
+    setSelectedCategory('전체');
+    setCurrentPage(1);
+    setSelectedTitles(faqList);
   };
 
   // useRef 추가
