@@ -15,7 +15,7 @@ const Nav = () => {
     <nav>
       <h1>고객센터</h1>
       <ul>
-        <li className={selectedItemFromPath === 'NoticeList' ? 'selected' : ''}>
+        <li className={selectedItemFromPath === 'NoticeList' || selectedItemFromPath === 'NoticeDetail' ? 'selected' : ''}>
           <Link to="/NoticeList">공지사항</Link>
         </li>
         <li className={selectedItemFromPath === 'FAQs' ? 'selected' : ''}>
