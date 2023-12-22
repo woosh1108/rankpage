@@ -85,3 +85,17 @@
   letter-spacing: -.14px;
   padding: 0 18px;
 }
+
+.notice-content p {
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.notice-content table tbody td {
+  border: none;
+  border-top: 1px solid #ebebeb;
+  height: 48px;
+  padding: 4px 15px;
+  margin: 0;
+}
