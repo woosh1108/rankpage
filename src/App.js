@@ -6,6 +6,7 @@ import NoticeList from './components/NoticeList';
 import FAQs from './components/FAQs';
 import InspectionCriteria from './components/InspectionCriteria';
 import Search from './components/searchs/Search';
+import SearchResults from './components/SearchResults';
 
 const App = () => {
 
@@ -14,7 +15,8 @@ const App = () => {
       <div className="app">
         <Routes>
           <Route path="/Search" element={<Search />} />
-          <Route path="/" element={<RankPage title="남성 신발 인기 순위" />} />
+          <Route path="/" element={<SearchResults />} />
+          <Route path="/RankPage" element={<RankPage title="남성 신발 인기 순위" />} />
           <Route path="/NoticeList" element={<NoticeList />} />
           <Route path="/NoticeDetail" element={<NoticeDetail />} />
           <Route path="/FAQs" element={<FAQs />} />

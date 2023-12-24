@@ -30,7 +30,7 @@ const NoticeDetail = ({ match }) => {
   }, [id]);
 
   if (!notice) {
-    return <div>Loading...</div>;
+    return <div className='loading'>Loading...</div>;
   }
 
   return (

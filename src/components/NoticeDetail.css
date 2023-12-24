@@ -1,5 +1,14 @@
 /* NoticeDetail.css */
 
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 20px;
+}
+
 .container {
   max-width: 1150px;
   margin: 0 auto;
@@ -85,11 +94,12 @@
   letter-spacing: -.14px;
   padding: 0 18px;
 }
-
-.notice-content p {
-  line-height: 24px;
+p, figure, table, tbody, td {
   margin: 0;
   padding: 0;
+}
+.notice-content p {
+  line-height: 24px;
 }
 
 .notice-content table tbody td {
@@ -97,5 +107,4 @@
   border-top: 1px solid #ebebeb;
   height: 48px;
   padding: 4px 15px;
-  margin: 0;
 }

@@ -1,0 +1,91 @@
+/* SearchResults.css */
+
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+  position: relative;
+  margin-top: 70px; /* nav와의 거리를 늘리는 부분 */
+  margin-bottom: 160px; /* footer와의 거리를 늘리는 부분 */
+  flex-direction: column; /* 추가된 속성 */
+  align-items: center; /* 추가된 속성 */
+}
+
+.search_title{
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 30px;
+  position: relative;
+}
+
+.related_keywords {
+    padding: 16px 0 0;
+    width: 500px;
+    display: flex;
+    gap: 16px;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.related_keywords .keywords {
+  column-gap: 12px;
+  flex-wrap: wrap;
+  max-height: 46px;
+  overflow: hidden;
+  row-gap: 6px;
+  color: #646a76;
+  display: flex;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 14px;
+  color: inherit;
+}
+
+/* nav바 */
+.shop_tab {
+  width: 100%;
+  z-index: 1;
+}
+
+.tabs {
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+}
+
+.ul_tab {
+  display: flex;
+  gap: 28px;
+  height: 43px;
+  justify-content: center;
+}
+
+.ul_tab li .tab {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  color: #222;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+}
+
+li {
+  margin-top: 0px;
+}
+
+.ul_tab li.selected .tab {
+  font-weight: 700;
+  border-bottom: 2px solid #222;
+}
