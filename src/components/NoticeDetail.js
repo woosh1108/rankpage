@@ -1,7 +1,6 @@
 // NoticeDetail.js
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Nav from './Nav';
@@ -50,7 +49,7 @@ const NoticeDetail = ({ match }) => {
           <div className='notice-body' dangerouslySetInnerHTML={{ __html: notice.content }}></div>
         </div>
         <div className='btn_list'>
-          <a><Link to="/NoticeList">목록보기</Link></a>
+          <a href='/NoticeList'>목록보기</a>
         </div>
       </div>
       </div>

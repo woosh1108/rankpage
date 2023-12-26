@@ -6,6 +6,10 @@
   background-color: #fff;
   display: flex;
   position: relative;
+  margin-top: 120px;
+}
+
+.r_content {
   margin-top: 70px; /* nav와의 거리를 늘리는 부분 */
   margin-bottom: 160px; /* footer와의 거리를 늘리는 부분 */
   flex-direction: column; /* 추가된 속성 */

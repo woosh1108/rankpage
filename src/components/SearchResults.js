@@ -11,8 +11,8 @@ const SearchResults = () => {
   return (
     <>
     <Header />
-    <div className="container">
-      <div className='search_title has_input has_related'>
+    <div className="container r_content">
+      <div className='search_title'>
         <SearchInput/>
         <div className='related_keywords'>
           <p className='title'>연관</p>
