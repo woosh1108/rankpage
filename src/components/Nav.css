@@ -27,7 +27,7 @@ ul {
   margin: 0 auto;
 }
 
-li {
+nav ul li {
   list-style: none;
   cursor: pointer;
   font-size: 15px;
@@ -38,12 +38,12 @@ li {
   text-decoration: none;
 }
 
-li:first-child {
+nav ul li:first-child {
   margin-top: 0px;
 }
 
 /* 선택된 li에 대한 스타일 */
-li.selected a {
+nav ul li.selected a {
   font-weight: 700;
   color: #222;
 }

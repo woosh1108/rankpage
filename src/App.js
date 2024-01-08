@@ -15,7 +15,7 @@ const App = () => {
       <div className="app">
         <Routes>
           <Route path="/Search" element={<Search />} />
-          <Route path="/" element={<SearchResults />} />
+          <Route path="/SearchResults" element={<SearchResults />} />
           <Route path="/RankPage" element={<RankPage title="남성 신발 인기 순위" />} />
           <Route path="/NoticeList" element={<NoticeList />} />
           <Route path="/NoticeDetail" element={<NoticeDetail />} />

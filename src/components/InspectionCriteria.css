@@ -7,7 +7,7 @@
   display: flex;
   position: relative;
   margin-top: 120px; /* nav와의 거리를 늘리는 부분 */
-  margin-bottom: 160px; /* footer와의 거리를 늘리는 부분 */
+  margin-bottom: 30px; /* footer와의 거리를 늘리는 부분 */
 }
 
 .inspection-criteria {
@@ -18,7 +18,6 @@
 
 .inspection-criteria-header {
   border-bottom: 3px solid #222;
-  padding-bottom: 16px;
 }
 
 .inspection-criteria .inspection-criteria-header h3 {
