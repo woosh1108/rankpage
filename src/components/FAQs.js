@@ -9,6 +9,7 @@ import Nav from './Nav';
 import './FAQs.css';
 
 const FAQs = () => {
+  
   // 더미 데이터: FAQ 목록
   const faqList = [
     { id: 1, category: '이용정책', title: '카테고리 질문 1', content: '전체 카테고리 질문 내용 1' },
