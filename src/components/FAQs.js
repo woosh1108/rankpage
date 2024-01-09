@@ -7,28 +7,11 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Nav from './Nav';
 import './FAQs.css';
+import axios from 'axios';  // axios import 추가
 
 const FAQs = () => {
-  
-  // 더미 데이터: FAQ 목록
-  const faqList = [
-    { id: 1, category: '이용정책', title: '카테고리 질문 1', content: '전체 카테고리 질문 내용 1' },
-    { id: 2, category: '이용정책', title: '이용정책 질문 1', content: '이용정책 질문 내용 1' },
-    { id: 3, category: '공통', title: '공통 질문 1', content: '공통 질문 내용 1' },
-    { id: 4, category: '구매', title: '구매 질문 1', content: '구매 질문 내용 1' },
-    { id: 5, category: '판매', title: '판매 질문 1', content: '판매 질문 내용 1' },
-    { id: 6, category: '이용정책', title: '카테고리 질문 2', content: '전체 카테고리 질문 내용 2' },
-    { id: 7, category: '이용정책', title: '이용정책 질문 2', content: '이용정책 질문 내용 2' },
-    { id: 8, category: '공통', title: '공통 질문 2', content: '공통 질문 내용 2' },
-    { id: 9, category: '구매', title: '구매 질문 2', content: '구매 질문 내용 2' },
-    { id: 10, category: '판매', title: '판매 질문 2', content: '판매 질문 내용 2' },
-    { id: 11, category: '이용정책', title: '카테고리 질문 3', content: '전체 카테고리 질문 내용 3' },
-    { id: 12, category: '이용정책', title: '이용정책 질문 3', content: '이용정책 질문 내용 3' },
-    { id: 13, category: '공통', title: '공통 질문 3', content: '공통 질문 내용 3' },
-    { id: 14, category: '구매', title: '구매 질문 3', content: '구매 질문 내용 3' },
-    { id: 15, category: '판매', title: '판매 질문 3', content: '판매 질문 내용 3' },
-    // ... (필요한 만큼 FAQ 항목 추가)
-  ];
+  // FAQ 목록을 담을 상태
+  const [faqList, setFaqList] = useState([]);
 
   // 선택한 카테고리와 세부 내용을 관리할 상태
   const [selectedCategory, setSelectedCategory] = useState('전체');
@@ -95,7 +78,7 @@ const FAQs = () => {
       setCurrentPage(1);
       setSelectedTitles(faqList);
     } else {
-      const selectedFaqs = faqList.filter((faq) => faq.category === category);
+      const selectedFaqs = faqList.filter((faq) => faq.faqCate === category);
       setShowSearchResults(false);
       setSelectedCategory(category);
       setCurrentPage(1);
@@ -150,8 +133,8 @@ const FAQs = () => {
 
     // 원래의 FAQ 목록에서 검색 수행
     const filteredTitles = faqList.filter((faq) =>
-      faq.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      faq.content.toLowerCase().includes(searchTerm.toLowerCase())
+      faq.faqTitle.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      faq.faqContent.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     // 검색 결과가 있을 경우에만 표시
@@ -165,6 +148,21 @@ const FAQs = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = selectedTitles.slice(indexOfFirstItem, indexOfLastItem);
+
+  // 컴포넌트가 마운트될 때 FAQ 데이터를 받아옴
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/api/faq/all');
+        setFaqList(response.data);
+        setSelectedTitles(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -231,14 +229,14 @@ const FAQs = () => {
 
       <div className="title-list">
         {currentItems.map((faq) => (
-          <div key={faq.id} className={`title-item ${faq.category === '전체' ? 'empty-cell' : ''}`} onClick={() => handleTitleClick(faq.id)}>
+          <div key={faq.faqNo} className={`title-item ${faq.faqCate === '전체' ? 'empty-cell' : ''}`} onClick={() => handleTitleClick(faq.faqNo)}>
             <div className="title-item-header">
-              <strong className='faq-category'>{faq.category}</strong>
-              <p className='faq-title'>{faq.title}</p>            
-              <FontAwesomeIcon icon={selectedFaqId === faq.id ? faAngleUp : faAngleDown} className='faq-icon' />
+              <strong className='faq-category'>{faq.faqCate}</strong>
+              <p className='faq-title'>{faq.faqTitle}</p>            
+              <FontAwesomeIcon icon={selectedFaqId === faq.faqNo ? faAngleUp : faAngleDown} className='faq-icon' />
             </div>
             <div className='title-item-content'>
-              {selectedFaqId === faq.id && <p dangerouslySetInnerHTML={{ __html: faq.content }} />}
+              {selectedFaqId === faq.faqNo && <p dangerouslySetInnerHTML={{ __html: faq.faqContent }} />}
             </div>
           </div>
         ))}
