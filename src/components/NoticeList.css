@@ -40,6 +40,12 @@ h3 {
   margin: 0 auto;
 }
 
+.notices-list li a {
+  font-size: 15px;
+  color: #222222;
+  letter-spacing: -.15px;
+}
+
 .pagination {
   display: flex;
   justify-content: center;

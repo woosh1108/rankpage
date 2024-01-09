@@ -1,5 +1,6 @@
 // NoticeList.js
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Link 추가
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleLeft, faAngleLeft, faAngleRight, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 import Header from '../components/Header';
@@ -10,21 +11,25 @@ import './NoticeList.css';
 const NoticeList = () => {
   const [notices, setNotices] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const noticesPerPage = 20;
-  const totalItems = 250; // 백엔드에서 받아온 전체 아이템 수
-  const totalPages = Math.ceil(totalItems / noticesPerPage);
-
-  // 공지사항 더미 데이터
-  const dummyNotices = Array.from({ length: totalItems }, (_, index) => ({
-    id: index + 1,
-    title: `Notice ${index + 1}`,
-  }));
+  const [totalPages, setTotalPages] = useState(1); // 총 페이지 수를 상태로 관리
 
   useEffect(() => {
-    const startIndex = (currentPage - 1) * noticesPerPage;
-    const endIndex = startIndex + noticesPerPage;
-    const currentNotices = dummyNotices.slice(startIndex, endIndex);
-    setNotices(currentNotices);
+    const fetchNotices = async () => {
+      try {
+        const response = await fetch(`http://localhost:8080/api/notice?page=${currentPage}`);
+        if (!response.ok) {
+          throw new Error(`Error fetching notices: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log('Fetched Data:', data); // 추가된 로그
+        setNotices(data.content);
+        setTotalPages(data.totalPages);
+      } catch (error) {
+        console.error('Error fetching notices:', error);
+      }
+    };
+  
+    fetchNotices();
   }, [currentPage]);
 
   const handlePageChange = (newPage) => {
@@ -69,7 +74,9 @@ const NoticeList = () => {
         </div>
         <ul className="notices-list">
           {notices.map((notice) => (
-            <li key={notice.id}>{notice.title}</li>
+            <li key={notice.noticeNo}>
+              <Link to={`/NoticeDetail/${notice.noticeNo}`}>[{notice.noticeCate}] {notice.noticeTitle}</Link>
+            </li>
           ))}
         </ul>
         <div className="pagination">
