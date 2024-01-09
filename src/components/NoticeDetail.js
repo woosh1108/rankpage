@@ -49,6 +49,9 @@ const NoticeDetail = ({ match }) => {
     return <div className='loading'>Loading...</div>;
   }
 
+  // noticeDate를 Date 객체로 변환
+  const date = new Date(notice.noticeDate);
+
   return (
     <>
     <Header />
@@ -59,7 +62,7 @@ const NoticeDetail = ({ match }) => {
           <h3>공지사항</h3>
         </div>
         <div className='notice-info'>
-          <span className='notice-date'>{notice.noticeDate}</span>
+          <span className='notice-date'>{date.toLocaleDateString('ko-KR')}</span>
           <p>{notice.noticeTitle}</p>
         </div>
         <div className='notice-content'>
