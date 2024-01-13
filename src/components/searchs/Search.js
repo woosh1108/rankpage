@@ -35,11 +35,7 @@ const Search = () => {
   };
 
   useEffect(() => {
-    fetchRecentSearches().then((data) => {
-      setRecentSearches(data);
-      setSearchQuery('');
-    });
-
+    fetchRecentSearches();
     fetchRecommendedKeywords().then((data) => setRecommendedKeywords(data));
     fetchPopularKeywords().then((data) => setPopularKeywords(data));
     fetchPopularCollaborations().then((data) => setPopularCollaborations(data));
@@ -47,8 +43,14 @@ const Search = () => {
   }, []);
 
   // 최근 검색어 데이터
-  const fetchRecentSearches = async () => {
-    return [`노스페이스 패딩`, `나이키 루나레이크`, `나이키 에어포스`, `살로몬 컨투어 패딩`, `목도리`, `장원영 안경`, `겐조 x 베르디`];
+  const fetchRecentSearches = () => {
+    const cookies = document.cookie.split(';');
+    const recentSearchesCookie = cookies.find(cookie => cookie.trim().startsWith('recentSearches='));
+    
+    if (recentSearchesCookie) {
+      const searches = recentSearchesCookie.split('=')[1].split(',');
+      setRecentSearches(searches);
+    }
   };
 
   // 추천 검색어 데이터
@@ -112,6 +114,7 @@ const Search = () => {
   };
 
   const clearRecentSearches = () => {
+    document.cookie = 'recentSearches=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     setRecentSearches([]);
     setShowClearModal(false);
   };
@@ -123,6 +126,9 @@ const Search = () => {
   const handleDeleteRecentSearch = (searchToDelete) => {
     const updatedSearches = recentSearches.filter((search) => search !== searchToDelete);
     setRecentSearches(updatedSearches);
+
+    const updatedSearchesString = updatedSearches.join(',');
+    document.cookie = `recentSearches=${updatedSearchesString}`;
   };
 
   const shouldRenderRecentSearchesSection = () => {
@@ -133,12 +139,23 @@ const Search = () => {
     const results = performSearch(searchQuery);
     setSearchResults(results);
     setSearchMode('normal');
+
+    // Save the search query to recent searches
+    saveRecentSearch(searchQuery);
   };
 
   const performSearch = (query) => {
     return ['Result A', 'Result B', 'Result C'].filter(result =>
       result.toLowerCase().includes(query.toLowerCase())
     );
+  };
+
+  const saveRecentSearch = (keyword) => {
+    const updatedSearches = [keyword, ...recentSearches.slice(0, 4)]; // 최근 5개까지만 저장
+    setRecentSearches(updatedSearches);
+
+    const updatedSearchesString = updatedSearches.join(',');
+    document.cookie = `recentSearches=${updatedSearchesString}`;
   };
 
   useEffect(() => {
