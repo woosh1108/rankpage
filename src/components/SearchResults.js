@@ -4,10 +4,14 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './SearchResults.css';
+import ProductItem from './ProductItem';
+import menShoeDummyData from '../MenShoeDummyData';
 
 import SearchInput from './searchs/SearchInput'; // 검색바
 
 const SearchResults = () => {
+  const products = menShoeDummyData;
+
   return (
     <>
     <Header />
@@ -33,17 +37,23 @@ const SearchResults = () => {
           <div className='tabs'>
             <ul className='ul_tab'>
               <li className='li_tab'>
-                <a className='tab'><span className='tab_name'>상품</span></a>
+                <a className='tab'><span className='products'>상품</span></a>
               </li>
               <li className='li_tab'>
-                <a className='tab'><span className='tab_name'>스타일</span></a>
+                <a className='tab'><span className='communities'>스타일</span></a>
               </li>
               <li className='li_tab'>
-                <a className='tab'><span className='tab_name'>프로필</span></a>
+                <a className='tab'><span className='users'>프로필</span></a>
               </li>
             </ul>
           </div>
         </nav>
+
+        <div className="product-list">
+          {products.map((product) => (
+            <ProductItem key={product.id} {...product} />
+          ))}
+        </div>
 
     </div>
     <Footer />

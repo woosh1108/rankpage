@@ -6,21 +6,22 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import './Search.css';
 import menShoeDummyData from '../../MenShoeDummyData';
+import axios from 'axios';  // axios import 추가
 
 import SearchInput from './SearchInput'; // 검색바
 import Autocomplete from './Autocomplete'; // 자동완성
 import RecentSearches from './RecentSearches'; // 최근 검색어
 import RecommendationKeywords from './RecommendationKeywords'; // 추천 검색어
 import PopularKeywords from './PopularKeywords'; // 인기 검색어
-import PopularCollaborations from './PopularCollaborations'; // 인기 콜라보
+import PopularBrands from './PopularBrands'; // 인기 콜라보
 import RecentlyViewedProducts from './RecentlyViewedProducts'; // 최근 본 상품
 
 const Search = () => {
   const [recentSearches, setRecentSearches] = useState([]);
   const [showClearModal, setShowClearModal] = useState(false);
-  const [recommendedKeywords, setRecommendedKeywords] = useState([]);
-  const [popularKeywords, setPopularKeywords] = useState([]);
-  const [popularCollaborations, setPopularCollaborations] = useState([]);
+  const [recommendedKeywords, setRecommendedKeywords] = useState([]);; // 추천 검색어
+  const [popularKeywords, setPopularKeywords] = useState([]); // 인기 검색어
+  const [popularBrands, setPopularBrands] = useState([]); // 인기 브랜드
   const [recentlyViewedProducts, setRecentlyViewedProducts] = useState([]);
   const navigate = useNavigate();
 
@@ -36,9 +37,9 @@ const Search = () => {
 
   useEffect(() => {
     fetchRecentSearches();
-    fetchRecommendedKeywords().then((data) => setRecommendedKeywords(data));
-    fetchPopularKeywords().then((data) => setPopularKeywords(data));
-    fetchPopularCollaborations().then((data) => setPopularCollaborations(data));
+    fetchRecommendedKeywords().then((data) => setRecommendedKeywords(data)); // 추천 검색어
+    fetchPopularKeywords().then((data) => setPopularKeywords(data)); // 인기 검색어
+    fetchPopularBrands().then((data) => setPopularBrands(data)); // 인기 브랜드
     fetchRecentlyViewedProducts().then((data) => setRecentlyViewedProducts(data));
   }, []);
 
@@ -53,31 +54,45 @@ const Search = () => {
     }
   };
 
-  // 추천 검색어 데이터
+  // 추천 검색어
   const fetchRecommendedKeywords = async () => {
-    const data = [
-      '겐조 x 베르디',
-      '어그 부츠',
-      '아디다스 운동화',
-      '나이키 에어맥스',
-      '아모레퍼시픽 맨즈',
-    ];
-    setRecommendedKeywords(data);
-    return data;
+    try {
+      const response = await axios.get('http://localhost:8080/api/search/top5ProductsByTenderCount');
+      const data = response.data;
+  
+      setRecommendedKeywords(data);
+  
+      return data;
+    } catch (error) {
+      console.error('추천 키워드를 불러오는 중 오류 발생:', error);
+      return [];
+    }
   };
 
-  // 인기 검색어 데이터
+  // 인기 검색어
   const fetchPopularKeywords = async () => {
-    return [`장갑`, `롱패딩`, `노스페이스 패딩`, `목도리`, `머플러`,
-      `어그`, `노스페이스 눕시`, `범고래`, `슈프림 모자`, `빵빵이`,
-      `나이키 패딩`, `아크네`, `몽클레어`, `호카`, `비니`,
-      `덩크로우`, `레고`, `이미스`, `셀린느`, `미우미우`];
+    try {
+      const response = await axios.get('http://localhost:8080/api/search/top20PopularByTenderCount');
+      const data = response.data;
+      setPopularKeywords(data);
+      return data;
+    } catch (error) {
+      console.error('인기 검색어를 불러오는 중 오류 발생:', error);
+      return [];
+    }
   };
 
-  // 인기 콜라보 데이터
-  const fetchPopularCollaborations = async () => {
-    return [`슈프림 x 노스페이스`, `아이앱 스튜디오 x 헬리녹스`, `아디다스 x 웨일스보너`,
-      `아크테릭스 x 빔즈`, `나이키 x 사카이`, `자라 x 아더에러`];
+  // 인기 브랜드
+  const fetchPopularBrands = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/api/search/top6BrandsByTenderCount');
+      const data = response.data;
+      setPopularBrands(data);
+      return data;
+    } catch (error) {
+      console.error('인기 브랜드를 불러오는 중 오류 발생:', error);
+      return [];
+    }
   };
 
   // 최근 본 상품 데이터
@@ -140,7 +155,6 @@ const Search = () => {
     setSearchResults(results);
     setSearchMode('normal');
 
-    // Save the search query to recent searches
     saveRecentSearch(searchQuery);
   };
 
@@ -190,14 +204,17 @@ const Search = () => {
             onDelete={handleDeleteRecentSearch}
           />
         )}
+        {/* 추천 검색어 */}
         {searchQuery === '' && (
           <RecommendationKeywords keywords={recommendedKeywords} />
         )}
+        {/* 인기 검색어 */}
         {searchQuery === '' && (
           <PopularKeywords keywords={popularKeywords} />
         )}
+        {/* 인기 브랜드 */}
         {searchQuery === '' && (
-          <PopularCollaborations collaborations={popularCollaborations} />
+          <PopularBrands brands={popularBrands} />
         )}
         {searchQuery === '' && recentlyViewedProducts.length > 0 && (
           <RecentlyViewedProducts products={recentlyViewedProducts} />

@@ -9,8 +9,8 @@ const RecommendationKeywords = ({ keywords }) => (
     <h2>추천 검색어</h2>
     <div>
       <ul>
-        {keywords.map((keyword, index) => (
-          <li key={index}>{keyword}</li>
+      {keywords && keywords.map((keyword, index) => (
+          <li key={index}>{keyword.productKorName}</li>
         ))}
       </ul>
     </div>
