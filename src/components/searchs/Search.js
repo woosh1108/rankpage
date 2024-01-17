@@ -47,10 +47,12 @@ const Search = () => {
   const fetchRecentSearches = () => {
     const cookies = document.cookie.split(';');
     const recentSearchesCookie = cookies.find(cookie => cookie.trim().startsWith('recentSearches='));
-    
+  
     if (recentSearchesCookie) {
       const searches = recentSearchesCookie.split('=')[1].split(',');
       setRecentSearches(searches);
+    } else {
+      setRecentSearches(null);  // 빈 배열이 아닌 null로 초기화
     }
   };
 
@@ -109,7 +111,7 @@ const Search = () => {
 
       fetchRecommendedKeywords().then((data) => {
         const filteredKeywords = data.filter((keyword) =>
-          keyword.toLowerCase().includes(query.toLowerCase())
+          typeof keyword === 'string' && keyword.toLowerCase().includes(query.toLowerCase())
         );
         setAutocompleteResults(filteredKeywords);
       });
@@ -130,8 +132,8 @@ const Search = () => {
 
   const clearRecentSearches = () => {
     document.cookie = 'recentSearches=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    setRecentSearches([]);
-    setShowClearModal(false);
+    setRecentSearches([]);  // 빈 배열을 저장하지 않음
+    setShowClearModal(!showClearModal);
   };
 
   const cancelClearRecentSearches = () => {
@@ -141,15 +143,20 @@ const Search = () => {
   const handleDeleteRecentSearch = (searchToDelete) => {
     const updatedSearches = recentSearches.filter((search) => search !== searchToDelete);
     setRecentSearches(updatedSearches);
-
-    const updatedSearchesString = updatedSearches.join(',');
-    document.cookie = `recentSearches=${updatedSearchesString}`;
+  
+    // 여기서 빈 배열 체크 추가
+    if (updatedSearches.length > 0) {
+      const updatedSearchesString = updatedSearches.join(',');
+      document.cookie = `recentSearches=${updatedSearchesString}`;
+    } else {
+      document.cookie = 'recentSearches=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    }
   };
 
   const shouldRenderRecentSearchesSection = () => {
-    return recentSearches.length > 0;
+    return recentSearches && recentSearches.length > 0 && searchQuery.trim() === '';
   };
-
+  
   const handleSearchSubmit = () => {
     const results = performSearch(searchQuery);
     setSearchResults(results);
@@ -165,13 +172,14 @@ const Search = () => {
   };
 
   const saveRecentSearch = (keyword) => {
-    const updatedSearches = [keyword, ...recentSearches.slice(0, 4)]; // 최근 5개까지만 저장
+    const updatedSearches = recentSearches ? [keyword, ...recentSearches.slice(0, 4)] : [keyword];
     setRecentSearches(updatedSearches);
-
+  
     const updatedSearchesString = updatedSearches.join(',');
     document.cookie = `recentSearches=${updatedSearchesString}`;
   };
 
+  
   useEffect(() => {
   fetchRecommendedKeywords().then((data) => setRecommendedKeywords(data));
     if (!showClearModal) {
