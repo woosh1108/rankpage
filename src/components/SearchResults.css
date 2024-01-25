@@ -86,11 +86,11 @@ a {
   margin: 0;
 }
 
-li {
+.ul_tab li {
   margin-top: 0px;
 }
 
-.ul_tab li.selected .tab {
+.ul_tab .li_tab .active {
   font-weight: 700;
   border-bottom: 2px solid #222;
 }

@@ -1,9 +1,9 @@
 // Search.js
 
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
 import './Search.css';
 import menShoeDummyData from '../../MenShoeDummyData';
 import axios from 'axios';  // axios import 추가
@@ -16,10 +16,10 @@ import PopularKeywords from './PopularKeywords'; // 인기 검색어
 import PopularBrands from './PopularBrands'; // 인기 콜라보
 import RecentlyViewedProducts from './RecentlyViewedProducts'; // 최근 본 상품
 
-const Search = () => {
-  const [recentSearches, setRecentSearches] = useState([]);
+const Search = ({ recentSearches: propRecentSearches, onSaveRecentSearch }) => {
+  const [recentSearches, setRecentSearches] = useState(propRecentSearches || []);
   const [showClearModal, setShowClearModal] = useState(false);
-  const [recommendedKeywords, setRecommendedKeywords] = useState([]);; // 추천 검색어
+  const [recommendedKeywords, setRecommendedKeywords] = useState([]); // 추천 검색어
   const [popularKeywords, setPopularKeywords] = useState([]); // 인기 검색어
   const [popularBrands, setPopularBrands] = useState([]); // 인기 브랜드
   const [recentlyViewedProducts, setRecentlyViewedProducts] = useState([]);
@@ -30,10 +30,6 @@ const Search = () => {
   const [autocompleteResults, setAutocompleteResults] = useState([]);
   const [searchMode, setSearchMode] = useState('normal');
 
-  const clearSearchTerm = () => {
-    setSearchQuery('');
-    setSearchMode('normal');
-  };
 
   useEffect(() => {
     fetchRecentSearches();
@@ -42,6 +38,18 @@ const Search = () => {
     fetchPopularBrands().then((data) => setPopularBrands(data)); // 인기 브랜드
     fetchRecentlyViewedProducts().then((data) => setRecentlyViewedProducts(data));
   }, []);
+
+  // 자동 완성 받아오기
+  const fetchAutocompleteResults = async (query) => {
+    try {
+      const response = await axios.get(`http://localhost:8080/api/search/autocomplete?keyword=${encodeURIComponent(query)}`);
+      const data = response.data;
+      return data;
+    } catch (error) {
+      console.error('Error fetching autocomplete results:', error);
+      return [];
+    }
+  };
 
   // 최근 검색어 데이터
   const fetchRecentSearches = () => {
@@ -102,27 +110,18 @@ const Search = () => {
     return menShoeDummyData;
   };
 
-  const handleSearchInput = (event) => {
+  const handleSearchInput = async (event) => {
     const query = event.target.value;
     setSearchQuery(query);
 
     if (query.trim() !== '') {
       setSearchMode('autocomplete');
 
-      fetchRecommendedKeywords().then((data) => {
-        const filteredKeywords = data.filter((keyword) =>
-          typeof keyword === 'string' && keyword.toLowerCase().includes(query.toLowerCase())
-        );
-        setAutocompleteResults(filteredKeywords);
-      });
+      // 자동완성 결과 받아오기
+      const autocompleteResults = await fetchAutocompleteResults(query);
+      setAutocompleteResults(autocompleteResults);
     } else {
       setSearchMode('normal');
-    }
-  };
-
-  const handleEnterKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      handleSearchSubmit();
     }
   };
 
@@ -161,8 +160,12 @@ const Search = () => {
     const results = performSearch(searchQuery);
     setSearchResults(results);
     setSearchMode('normal');
-
-    saveRecentSearch(searchQuery);
+  
+    // onSaveRecentSearch 함수를 SearchResults 컴포넌트로 전달
+    // onSaveRecentSearch가 없는 경우 기본적으로 빈 함수를 전달
+    navigate(`/SearchResults?keyword=${encodeURIComponent(searchQuery)}&tab=products`, {
+      state: { searchQuery },
+    });
   };
 
   const performSearch = (query) => {
@@ -172,11 +175,26 @@ const Search = () => {
   };
 
   const saveRecentSearch = (keyword) => {
-    const updatedSearches = recentSearches ? [keyword, ...recentSearches.slice(0, 4)] : [keyword];
-    setRecentSearches(updatedSearches);
-  
-    const updatedSearchesString = updatedSearches.join(',');
-    document.cookie = `recentSearches=${updatedSearchesString}`;
+    if (!recentSearches) {
+      // recentSearches 배열이 아직 생성되지 않은 경우
+      setRecentSearches([keyword]);
+    } else {
+      // 중복 검색어 제거
+      const updatedSearches = recentSearches.filter((search) => search !== keyword);
+
+      // 새로운 검색어 추가
+      const newRecentSearches = [keyword, ...updatedSearches.slice(0, 4)];
+
+      // 상태 업데이트
+      setRecentSearches(newRecentSearches);
+
+      // 쿠키 업데이트
+      const updatedSearchesString = newRecentSearches.join(',');
+      document.cookie = `recentSearches=${updatedSearchesString}`;
+      
+      // App 컴포넌트에서 받아온 함수 호출
+      onSaveRecentSearch(keyword);
+    }
   };
 
   
@@ -196,8 +214,8 @@ const Search = () => {
       <SearchInput
         searchQuery={searchQuery}
         handleSearchInput={handleSearchInput}
-        handleEnterKeyPress={handleEnterKeyPress}
-        clearSearchTerm={clearSearchTerm}
+        onSearchSubmit={handleSearchSubmit}
+        onEnterKeyPress={handleSearchSubmit}
       />
 
       {searchMode === 'autocomplete' && autocompleteResults.length > 0 && (
