@@ -11,10 +11,7 @@ import SearchResults from './components/SearchResults';
 
 const App = () => {
   // yourOnSaveRecentSearchFunction를 정의하거나 가져옴
-  const yourOnSaveRecentSearchFunction = (searchQuery) => {
-    // 검색어 저장 로직 구현
-    console.log(`Recent search saved: ${searchQuery}`);
-  };
+  const yourOnSaveRecentSearchFunction = (searchQuery) => {};
 
   const [recentSearches, setRecentSearches] = useState([]);
 

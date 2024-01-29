@@ -5,6 +5,9 @@ import './ProductItem.css';
 import shoes from '../shoes.png';
 
 const formatNumber = (num) => {
+  if (num === undefined || num === null) {
+    return ''; // 정의되지 않은 경우 빈 문자열 반환
+  }
   if (num >= 10000) {
     const formattedNumber = (num / 10000).toFixed(1);
     const decimalPart = formattedNumber.split('.')[1];
@@ -15,14 +18,8 @@ const formatNumber = (num) => {
 
 const ProductItem = ({
   productId,
-  productCateId,
   productEngName,
   productKorName,
-  productRelease,
-  productColor,
-  productModelNum,
-  productDate,
-  productState,
   communityTagProductsCount,
   userLikesCount
 }) => {

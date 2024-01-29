@@ -157,15 +157,16 @@ const Search = ({ recentSearches: propRecentSearches, onSaveRecentSearch }) => {
   };
   
   const handleSearchSubmit = () => {
-    const results = performSearch(searchQuery);
-    setSearchResults(results);
-    setSearchMode('normal');
+    const results = performSearch(searchQuery); // 검색 결과 가져오기
+    setSearchResults(results); // 검색 결과 설정
   
-    // onSaveRecentSearch 함수를 SearchResults 컴포넌트로 전달
-    // onSaveRecentSearch가 없는 경우 기본적으로 빈 함수를 전달
-    navigate(`/SearchResults?keyword=${encodeURIComponent(searchQuery)}&tab=products`, {
-      state: { searchQuery },
-    });
+    // onSaveRecentSearch 함수를 호출하여 최근 검색어 저장
+    if (searchQuery.trim() !== '') {
+      saveRecentSearch(searchQuery);
+    }
+  
+    // 페이지 이동
+    navigate(`/SearchResults?keyword=${encodeURIComponent(searchQuery)}&tab=products`);
   };
 
   const performSearch = (query) => {
@@ -215,7 +216,6 @@ const Search = ({ recentSearches: propRecentSearches, onSaveRecentSearch }) => {
         searchQuery={searchQuery}
         handleSearchInput={handleSearchInput}
         onSearchSubmit={handleSearchSubmit}
-        onEnterKeyPress={handleSearchSubmit}
       />
 
       {searchMode === 'autocomplete' && autocompleteResults.length > 0 && (

@@ -1,13 +1,16 @@
 // SearchInput.js
 // 검색바
 
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import './SearchInput.css';
 
 const SearchInput = ({ searchQuery, handleSearchInput, onSearchSubmit }) => {
-  
+  const [inputValue, setInputValue] = useState(searchQuery || '');
+  const navigate = useNavigate(); // useNavigate hook 사용
+
   const clearSearchTerm = () => {
     handleSearchInput({ target: { value: '' } }); // 검색어 입력 핸들러 호출하여 검색어를 지움
   };
